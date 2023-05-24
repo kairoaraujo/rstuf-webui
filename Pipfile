@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+jinja2 = "*"
+dynaconf = "*"
+requests = "*"
+python-multipart = "*"
+fastapi-sessions = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

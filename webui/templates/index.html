@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="ui segment">
+    <div class="ui two column very relaxed grid">
+        <div class="ui vertical menu">
+            <a class="item" href="admin/">
+                <h4 class="ui header">Admin</h4>
+                <p><i class="settings icon"></i> Ceremony, Update Metadata, and Sign Metadata</p>
+            </a>
+            <a class="item">
+                <h4 class="ui header">Key</h4>
+                <p><i class="key icon"></i> Generate key, or get key info </p>
+            </a>
+        </div>
+        <div class="column">
+            <div class="ui message">
+                <p></p>
+                <p>Documentation: <a href="https://rstuf.org">http://rstuf.org</a></p>
+                <p>Project: <a href="https://github.com/repository-service-tuf">https://github.com/repository-service-tuf</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

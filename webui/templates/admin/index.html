@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>
+    $(document).ready(function () {
+        $("#authenticate").click(function () {
+            $('.tiny.modal').modal('show');
+        })
+        $('.tiny.modal').modal('hide');
+    });
+</script>
+<div class="ui segment">
+    <div class="ui two column very relaxed grid">
+        <div class="ui vertical menu">
+            <a class="item">
+                <a class="item" href="ceremony/">
+                <p><i class="certificate icon"></i> Generates the initial RSTUF Settings and Root Metadata</p>
+            </a>
+            <a class="item">
+                <h4 class="ui header">Bootstrap</h4>
+                <p><i class="sign-in icon"></i> Bootstraps the RSTUF Service</p>
+            </a>
+            <a class="item">
+                <h4 class="ui header">Metadata Update</h4>
+                <p><i class="redo icon"></i> Update TUF Metadata which requires offline keys</p>
+            </a>
+            <a class="item">
+                <h4 class="ui header">Metadata Sign</h4>
+                <p><i class="edit icon"></i> Sign metadata role</p>
+            </a>
+        </div>
+        <div class="column">
+            <div class="ui message">
+                <div class="header">
+                    Administrative Interface
+                </div>
+                <p>It allows changes and management in the RSTUF</p>
+                <p></p>
+                <p>RSTUF API Server <a href="{{ server }}">{{ server }}</a></p>
+                {% if auth == True and (token == None or token == "Failed") %}
+                <p>This server uses built-in authentication</p>
+                    {% if token == "Failed" %}
+                    <div class="ui negative message">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Login failed
+                        </div>
+                    </div>
+                    {% endif %}
+                <button id="authenticate" class="ui primary button">Authenticate</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <a href="/"><button class="ui basic button">Home</button></a>
+
+    <div class="ui tiny modal">
+        <i class="close icon"></i>
+        <div class="ui content">
+            <div class="header">
+                RSTUF built-in auth admin password
+            </div>
+            <form action="/admin/" method="post">
+                <div class="ui left icon input">
+                    <input id="password" type="password" name="password">
+                    <i class="lock icon"></i>
+                </div>
+                <p></p>
+                <p><input class="ui right button" type="submit" value="Login"></p>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
